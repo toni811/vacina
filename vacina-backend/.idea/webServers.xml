@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ba85a215-1e9f-4d3f-8857-7bbd7e9a7a2c" name="webss21" url="http://s1710456036.student.kwmhgb.at">
+        <fileTransfer host="s1710456036.student.kwmhgb.at" port="222" rootFolder="/usr/home/sstud572/public_html/bookstore21/bookstoreServer" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="222" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="1c851b11-6988-45f0-9eed-a6306ea458ae" name="jab21" url="http://s1710456036.student.kwmhgb.at">
+        <fileTransfer host="s1710456036.student.kwmhgb.at" port="222" rootFolder="/usr/home/sstud572/public_html/jabnew/jabServer" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="222" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="e4f47532-e003-4d4b-9f92-c8079d1b2942" name="vacina" url="http://s1710456036.student.kwmhgb.at">
+        <fileTransfer host="s1710456036.student.kwmhgb.at" port="222" rootFolder="/usr/home/sstud572/public_html/vacina/vacinaServer" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="222" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
