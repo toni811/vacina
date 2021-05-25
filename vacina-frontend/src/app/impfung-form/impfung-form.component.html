@@ -1,0 +1,81 @@
+<div class="container">
+
+<h1></h1>
+
+<form  [formGroup]="impfungForm" (ngSubmit)="submitForm()">
+    <input type="hidden" name="id">
+
+    <div class="field" [class.disabled]="isUpdatingImpfung">
+        <label>Titel</label>
+        <input formControlName="title" class="form-control">
+        <div *ngIf="errors.title" class="ui negative message"> {{ errors.title }} </div>
+    </div>
+
+    <div class="field">
+        <label>Datum</label>
+        <input type="date" formControlName="date" class="form-control">
+        <div *ngIf="errors.date" class="ui negative message"> {{ errors.date }} </div>
+    </div>
+
+    <div class="field">
+        <label>Beschreibung</label>
+        <input formControlName="description" class="form-control">
+    </div>
+
+    <div class="field">
+        <label>Max. Anzahl </label>
+        <input type="number" formControlName="MaxMember" class="form-control">
+        <div *ngIf="errors.MaxMember" class="ui negative message"> {{ errors.MaxMember }} </div>
+    </div>
+
+    <div class="field">
+        <label>Termin</label>
+        <textarea formControlName="appointment" rows="3" class="form-control"></textarea>
+    </div>
+
+
+
+            <label class="">Ort</label>
+
+            <div formArrayName="orte">
+            <!--
+            <div formArrayName="orte">
+                <div  *ngFor="let control of orte?.controls; index as i; last as l" [formGroupName]="i" class="field"> -->
+
+                  <div [formGroupName]="ort" class="field">
+                    <input type="hidden" name="id">
+                     <label>Location: </label>
+                    <div class="field">
+                        <input formControlName="location" class="form-control">
+                    </div>
+
+                    <div class="field">
+                     <label>Beschreibung: </label>
+                      <input formControlName="description" class="form-control">
+                        </div>
+
+                        <div class="field">
+                         <label>PLZ: </label>
+                         <input formControlName="PLZ" class="form-control">
+                                 </div>
+
+                    <div class="field">
+                     <label>Datum: </label>
+                      <input formControlName="date" class="form-control" type="date">
+                        </div>
+
+                    <div class="field">
+                    <label>Adresse: </label>
+                        <input formControlName="address" class="form-control">
+                    </div>
+                </div>
+
+             </div>
+
+
+   <!-- <button type="submit" class="btn btn-primary" [disabled]="impfungForm.invalid">Speichern</button> -->
+    <button type="submit" class="btn btn-primary" >Speichern</button>
+
+
+    </form>
+    </div>

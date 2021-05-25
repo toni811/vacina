@@ -1,0 +1,52 @@
+
+
+<!-- nglf- stellt sicher, dass nur valides Impfung übergeben wird -->
+<!-- ngFor werden alle Ort ausgegeben -->
+
+
+<div class="container">
+<h1>Impfdetails</h1>
+<div class="row">
+  <div class="col-sm-6 text-white ">
+    <div class="card bg-light mb-3">
+      <div class="card-body">
+        <h5 class="card-title " style="color: black">{{impfung.title}}</h5>
+        <p class="card-text" style="color: black"> --> {{impfung.description}}</p>
+        <p class="card-text" style="color: black"> Beschreibung: {{impfung.appointment}}</p>
+          <p class="card-text" style="color: black"> Datum: {{impfung.date}}</p>
+        <h6 class="card-text" style="color: black">Ort:</h6>
+        <p class="card-text" style="color: black"> {{impfung.ort.location}}</p>
+        <p class="card-text" style="color: black"> Adresse: {{impfung.ort.address}}</p>
+        <p class="card-text" style="color: black"> Beschreibung: {{impfung.ort.description}}</p>
+
+        <a href="#" [routerLink]="'/impfung'" type="button"  class="btn btn-primary">Zurück zur
+                                                                                    Impfübersicht</a>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+
+<!-- BUTTON -->
+
+
+<!-- BUTTONS WERDEN NUR ADMIN ANGEZEIGT
+
+<button *ngIf="authService.isLoggedIn()" lass="btn btn-primary" (click)="removeImpfung()">
+ löschen</button>
+
+<a *ngIf="authService.isLoggedIn()" lass="btn btn-primary" [routerLink]="['../../admin', impfung?.title]">
+  bearbeiten </a>
+
+-->
+
+<!-- BUTTONS WERDEN IMMER ANGEZEIGT -->
+
+<button  class="btn btn-primary" (click)="removeImpfung()">löschen - alle</button>
+
+<a  class="btn btn-primary" [routerLink]="['../../admin', impfung?.title]"> bearbeiten -alle</a>
+
+<!-- ENDE -->
+</div>
+

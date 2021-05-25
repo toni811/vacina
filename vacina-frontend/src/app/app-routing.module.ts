@@ -1,0 +1,25 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+import { ImpfungDetailsComponent} from './impfung-details/impfung-details.component';
+import { ImpfungListComponent } from './impfung-list/impfung-list.component';
+import { HomeComponent } from './home/home.component';
+import {ImpfungFormComponent} from './impfung-form/impfung-form.component';
+import {LoginComponent} from './login/login.component';
+
+
+const routes: Routes = [
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'home', component: HomeComponent },
+    { path: 'impfung', component: ImpfungListComponent},
+    { path: 'impfung/:title', component: ImpfungDetailsComponent },
+    { path: 'admin', component: ImpfungFormComponent },
+    { path: 'admin/:title', component: ImpfungFormComponent },
+    { path: 'login', component: LoginComponent}
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

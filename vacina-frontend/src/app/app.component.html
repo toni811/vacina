@@ -1,0 +1,24 @@
+
+
+
+<!--NAVIGATION -->
+<nav class="navbar navbar-light bg-light">
+<a routerLink="home" routerLinkActive="active" class="item navbar-brand">Home</a>
+<a routerLink="impfung" routerLinkActive="active" class="item navbar-brand">Impfungen</a>
+<a *ngIf="isLoggedIn()" routerLink="admin" routerLinkActive="active" class="item navbar-brand">Administration</a>
+<a  routerLink="admin" routerLinkActive="active" class="item navbar-brand">Administration</a>
+<a routerLink="login" routerLinkActive="active" class="item navbar-brand">{{getLoginLabel()}}</a>
+
+</nav>
+
+
+<!-- LOGIN
+<a routerLink="login" routerLinkActive="active"
+class="item">{{getLoginLabel()}}</a>
+-->
+
+<!--  FORMULAR
+<a *ngIf="isLoggedIn()" routerLink="admin" routerLinkActive="active" class="item">Administration</a>
+<a routerLink="login" routerLinkActive="active" class="item">{{getLoginLabel()}}</a>
+-->
+<router-outlet></router-outlet>
