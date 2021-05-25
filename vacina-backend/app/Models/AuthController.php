@@ -17,11 +17,13 @@ class AuthController extends Controller
 
     public function login() {
         $credentials = request(['email', 'password']);
-
-        if (!$token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+        var_dump("email");
+        // hier wird nachgesehen ob pw, email passt--> wenn nicht error --> sonst token übergeben
+        if (! $token = auth()->attempt($credentials)) {
+            return response()->json(['error' => 'Unauthorized bla'], 401);
         }
 
+        // wird Token übergeben
         return $this->respondWithToken($token);
 
     }
@@ -46,4 +48,4 @@ class AuthController extends Controller
     }
 
 }
-//test
+//test23423

@@ -18,7 +18,7 @@ export class JwtInterceptorService
         }, (err: any) => {
             if (err instanceof HttpErrorResponse) {
                 if (err.status === 401) {
-                    http://jasonwatmore.com/post/2016/09/29/angular-2-user-registration-and-login-example-tutorial
+
                     console.log("error");
                     alert("Invalid login");
                 }

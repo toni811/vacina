@@ -18,7 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
 ///
 ///LOGIN
 ///
@@ -28,25 +27,29 @@ Route::post('auth/login', [\App\Http\Controllers\AuthController::class,'login'])
 ///
 ///IMPFUNG
 ///
+// methods which need authenticatoion - JWT Token
+Route::group(['middleware' => ['api','cors', 'auth.jwt']], function(){
+
+    // SAVE -> POST
+    Route::post('Impfung', [\App\Http\Controllers\ImpfungController::class,'save']);
+
+    //UPDATE -> PUT
+    Route::put('Impfung/{title}', [\App\Http\Controllers\ImpfungController::class,'update']);
+
+    // DELET -> DELET
+    Route::delete('Impfung/{title}', [\App\Http\Controllers\ImpfungController::class,'delete']);
+
+});
+
+//INDEX
 Route::get('Impfung', [\App\Http\Controllers\ImpfungController::class,'index']);
 
 // Impfung nach Titel suchen
 Route::get('Impfung/{title}', [\App\Http\Controllers\ImpfungController::class,'findByTitle']);
 
+
 // CHECK TITLE
 Route::get('Impfung/checkTitle/{title}', [\App\Http\Controllers\ImpfungController::class,'checkTitle']);
-
-// SAVE -> POST
-Route::post('Impfung', [\App\Http\Controllers\ImpfungController::class,'save']);
-
-//UPDATE -> PUT
-Route::put('Impfung/{title}', [\App\Http\Controllers\ImpfungController::class,'update']);
-
-// DELET -> DELET
-Route::delete('Impfung/{title}', [\App\Http\Controllers\ImpfungController::class,'delete']);
-
-// für User Get
-//
 
 
 ///

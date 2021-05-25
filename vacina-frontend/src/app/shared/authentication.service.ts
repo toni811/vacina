@@ -7,34 +7,47 @@ interface Token {
     exp: number;
     user: {
         id: string;
+        isAdmin: 0;
     };
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable(
+ // providedIn: 'root'
+//}
+)
 export class AuthenticationService {
     private api: string =
         'http://vacina.s1710456036.student.kwmhgb.at/api/auth';
 //'http://localhost:8080/api/auth';
 
-
+//Token holen
     constructor(private http: HttpClient) {}
     login(email: string, password: string) {
+        //console.log(password);
         return this.http.post(`${this.api}/login`, {
             email: email,
             password: password
         });
+        //console.log(password);
     }
+
+
+// user_id dazu holen
     public getCurrentUserId() {
         return Number.parseInt(localStorage.getItem("userId"));
     }
+//isAdmin info holen
+    public getIsAdmin(){
+        return Number.parseInt(localStorage.getItem("isAdmin"));
+    }
     public setLocalStorage(token: string) {
         console.log("Storing token");
+        // Token wird decoded
         console.log(jwt_decode(token));
         const decodedToken = jwt_decode(token) as Token;
         console.log(decodedToken);
         console.log(decodedToken.user.id);
+        //Token speichern
         localStorage.setItem("token", token);
         localStorage.setItem("userId", decodedToken.user.id);
     }
@@ -45,7 +58,9 @@ export class AuthenticationService {
         console.log("logged out");
     }
 
+    //
     public isLoggedIn() {
+        // ist aktueller Token noch gültig?
         if (localStorage.getItem("token")) {
             let token: string = localStorage.getItem("token");
             console.log(token);
