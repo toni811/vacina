@@ -31,15 +31,13 @@
 <!-- BUTTON -->
 
 
-<!-- BUTTONS WERDEN NUR ADMIN ANGEZEIGT
+<!-- BUTTONS WERDEN NUR ADMIN ANGEZEIGT -->
 
-<button *ngIf="authService.isLoggedIn()" lass="btn btn-primary" (click)="removeImpfung()">
- löschen</button>
+<button *ngIf="authService.isLoggedIn()" class="btn btn-primary" (click)="removeImpfung()"> löschen
+</button>
+<a *ngIf="authService.isLoggedIn()" class="btn btn-primary" [routerLink]="['../../admin', impfung?.title]"> bearbeiten</a>
 
-<a *ngIf="authService.isLoggedIn()" lass="btn btn-primary" [routerLink]="['../../admin', impfung?.title]">
-  bearbeiten </a>
 
--->
 
 <!-- BUTTONS WERDEN IMMER ANGEZEIGT -->
 

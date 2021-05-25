@@ -3,6 +3,7 @@
 
 <!--NAVIGATION -->
 <nav class="navbar navbar-light bg-light">
+<p> ohne log in</p>
 <a routerLink="home" routerLinkActive="active" class="item navbar-brand">Home</a>
 <a routerLink="impfung" routerLinkActive="active" class="item navbar-brand">Impfungen</a>
 <a *ngIf="isLoggedIn()" routerLink="admin" routerLinkActive="active" class="item navbar-brand">Administration</a>
@@ -12,13 +13,15 @@
 </nav>
 
 
-<!-- LOGIN
-<a routerLink="login" routerLinkActive="active"
-class="item">{{getLoginLabel()}}</a>
--->
 
-<!--  FORMULAR
-<a *ngIf="isLoggedIn()" routerLink="admin" routerLinkActive="active" class="item">Administration</a>
-<a routerLink="login" routerLinkActive="active" class="item">{{getLoginLabel()}}</a>
--->
+
+<nav class="navbar navbar-light bg-light">
+<div class=" item navbar-brand {{isLoggedIn()?'four':'three'}} ">
+<a routerLink="home" routerLinkActive="active" class="item navbar-brand">Home</a>
+<a routerLink="impfung" routerLinkActive="active" class="item navbar-brand">Impfungen</a>
+<a *ngIf="isLoggedIn()" routerLink="admin" routerLinkActive="active" class="item navbar-brand">Administration</a>
+<a routerLink="login" routerLinkActive="active"class="item navbar-brand">{{getLoginLabel()}}</a>
+</div>
+</nav>
+
 <router-outlet></router-outlet>

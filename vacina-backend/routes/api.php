@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 ///
 ///LOGIN
 ///
-//Route::post('auth/login', [\App\Http\Controllers\AuthController::class,'login']);
+Route::post('auth/login', [\App\Http\Controllers\AuthController::class,'login']);
 
 
 ///

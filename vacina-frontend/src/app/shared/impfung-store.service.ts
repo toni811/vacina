@@ -26,10 +26,10 @@ export class ImpfungStoreService {
     }
 
     remove(title: string): Observable<any> {
-        return this.http.delete(`${this.api}/Impgung/${title}`)
+        return this.http.delete(`${this.api}/Impfung/${title}`)
             .pipe(retry(3)).pipe(catchError(this.errorHandler));
     }
-
+// man muss Orte mitschicken mitschicken --> deshalb funktioniert das speichern nicht!!
     create(impfung: Impfung): Observable<any> {
         return this.http.post(`${this.api}/Impfung`, impfung)
             .pipe(retry(3)).pipe(catchError(this.errorHandler));
