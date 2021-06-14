@@ -73,22 +73,7 @@ public function save (Request $request) : JsonResponse {
         }
         $impfung->ort()->associate($ort);
         $impfung->save();
-        // save orte
-        /*if (isset($request['ort']) && is_array($request['ort'])) {
-            foreach ($request['ort'] as $i ) {
 
-                $ort =
-                    Ort::create([
-                        'address'=>$i['address'],
-                        'date'=>$i['date'],
-                        'description'=>$i['description'],
-                        'PLZ'=>$i['PLZ'],
-                        'location'=>$i['location']
-                    ]);
-                var_dump($ort);
-                $impfung->orte()->save($ort);
-            }
-        } */
 
         DB::commit();
         // return a vaild http response
@@ -123,12 +108,7 @@ public function save (Request $request) : JsonResponse {
                 }
                 $impfung->ort()->associate($ort);
                 $impfung->save();
-                /*if (isset($request['ort']) && is_array($request['ort'])) {
-                    foreach ($request['ort'] as $o) {
-                        $ort = Ort::firstOrNew(['title' => $o['title']]);
-                        $impfung->orte()->save($ort);
-                    }
-                } */
+
 
 
             }
@@ -166,7 +146,7 @@ public function save (Request $request) : JsonResponse {
 
 
     private function parseRequest(Request $request) : Request {
-        // get date and convert it - its in ISO 8601, e.g. "2018-01-01T23:00:00.000Z"
+
         $date = new \DateTime($request->date);
         $request['date'] = $date;
         return $request;

@@ -7,6 +7,7 @@ interface Token {
     exp: number;
     user: {
         id: string;
+        // isAdmin festlegen
         isAdmin: 0;
     };
 }
@@ -18,7 +19,7 @@ interface Token {
 export class AuthenticationService {
     private api: string =
         'http://vacina.s1710456036.student.kwmhgb.at/api/auth';
-//'http://localhost:8080/api/auth';
+
 
 //Token holen
     constructor(private http: HttpClient) {}
@@ -40,6 +41,7 @@ export class AuthenticationService {
     public getIsAdmin(){
         return Number.parseInt(localStorage.getItem("isAdmin"));
     }
+    //Token speichern--> auch die user_id,pw
     public setLocalStorage(token: string) {
         console.log("Storing token");
         // Token wird decoded
@@ -51,6 +53,8 @@ export class AuthenticationService {
         localStorage.setItem("token", token);
         localStorage.setItem("userId", decodedToken.user.id);
     }
+
+    //Token wird aus Storage entfernt
     logout() {
         this.http.post(`${this.api}/logout`, {});
         localStorage.removeItem("token");

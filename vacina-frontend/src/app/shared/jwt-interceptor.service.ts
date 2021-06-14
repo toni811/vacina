@@ -5,6 +5,9 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 
+// fügt Token im Http header immer automatisch mit ein
+
+
 
 @Injectable()
 export class JwtInterceptorService
@@ -13,8 +16,11 @@ export class JwtInterceptorService
         Observable<HttpEvent<any>> {
         return next.handle(request).pipe(tap((event: HttpEvent<any>) => {
             if (event instanceof HttpResponse) {
-// do stuff with response if you want
+
             }
+
+
+            // was passiert bei Fehlerhaften Login
         }, (err: any) => {
             if (err instanceof HttpErrorResponse) {
                 if (err.status === 401) {

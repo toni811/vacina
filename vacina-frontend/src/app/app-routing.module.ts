@@ -12,9 +12,12 @@ const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'impfung', component: ImpfungListComponent},
+    // Delet
     { path: 'impfung/:title', component: ImpfungDetailsComponent },
+    //Formular
     { path: 'admin', component: ImpfungFormComponent },
     { path: 'admin/:title', component: ImpfungFormComponent },
+    //Login
     { path: 'login', component: LoginComponent}
 ];
 
