@@ -18,6 +18,8 @@ import {AuthenticationService} from './shared/authentication.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {TokenInterceptorService} from './shared/token-interceptor.service';
 import {JwtInterceptorService} from './shared/jwt-interceptor.service';
+import { UserListItemComponent } from './user-list-item/user-list-item.component';
+
 
 
 
@@ -30,7 +32,9 @@ import {JwtInterceptorService} from './shared/jwt-interceptor.service';
     ImpfungDetailsComponent,
     HomeComponent,
     ImpfungFormComponent,
-    LoginComponent
+    LoginComponent,
+    UserListItemComponent,
+
   ],
   imports: [
     BrowserModule,

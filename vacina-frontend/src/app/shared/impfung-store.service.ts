@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError, retry} from 'rxjs/operators';
 import {Impfung} from './impfung';
-
+import {Ort} from "./ort";
 
 @Injectable()
 export class ImpfungStoreService {
@@ -35,6 +35,22 @@ export class ImpfungStoreService {
             .pipe(retry(3)).pipe(catchError(this.errorHandler));
 
     }
+
+    //-------------------------------------ORTE
+    saveOrt(ort: Ort): Observable<any> {
+        return this.http.put(`${this.api}/ort/${ort.id}`, ort)
+            .pipe(retry(3)).pipe(catchError(this.errorHandler));
+    }
+
+    getAllOrte(): Observable<Array<Ort>> {
+        return this.http.get(`${this.api}/orts`)
+            .pipe(retry(3)).pipe(catchError(this.errorHandler));
+    }
+
+
+
+    //---------------------------------ORTE
+
 
     update(impfung: Impfung): Observable<any> {
         return this.http.put(`${this.api}/Impfung/${impfung.title}`, impfung)

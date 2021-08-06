@@ -11,20 +11,30 @@ import { ImpfungFormErrorMessages } from "./impfung-form-error-messages";
     templateUrl: "./impfung-form.component.html"
 })
 export class ImpfungFormComponent implements OnInit {
+    //das Formular selbst
+    //FormGroups-> zum Gruppieren von Feldern
     impfungForm: FormGroup;
     impfung = ImpfungFactory.empty();
     errors: { [key: string]: string } = {};
     isUpdatingImpfung = false;
-    //orte: FormArray;
     ort: FormGroup;
+    // Orte einfügen
+    orte: Ort[];
+
+    //FormBuilder --> stellt Methoden zum Anlegen zur verfügung
+
+
     constructor(
         private ib: FormBuilder,
         private is: ImpfungStoreService,
         private route: ActivatedRoute,
         private router: Router
     ) {}
+
+    // wenn titel (Routenparameter) existiert soll Formular verwendet werden können
     ngOnInit() {
         const title = this.route.snapshot.params["title"];
+        this.buildOrtArray();
         if (title) {
             this.isUpdatingImpfung = true;
             this.is.getSingle(title).subscribe(impfung => {
@@ -34,9 +44,11 @@ export class ImpfungFormComponent implements OnInit {
         }
         this.initImpfung();
     }
+
+    // Impfung wird initialisiert
+    //mithilfe von FormModel wird formBuidler angelegt
     initImpfung
     () {
-        this.buildOrtArray();
         this.impfungForm = this.ib.group({
             id: this.impfung.id,
            // title: [this.impfung.title, Validators.required],
@@ -51,31 +63,20 @@ export class ImpfungFormComponent implements OnInit {
             date: this.impfung.date,
             description: this.impfung.description,
             MaxMember: [this.impfung.MaxMember, [Validators.min(0), Validators.max(10)]],
-            orte: this.ort
-
+            orte: this.impfung.ort.id
         });
         this.impfungForm.statusChanges.subscribe(() =>
             this.updateErrorMessages());
     }
 
 
+    //Orte
    buildOrtArray() {
-        console.log(this.impfung.ort);
-        //this.orte = this.ib.array([]);
-        //for (let o of this.impfung.ort) {
-            let fg = this.ib.group({
-                id: 1,
-                location: new FormControl(this.impfung.ort.location, [Validators.required]),
-                address: new FormControl(this.impfung.ort.address, [Validators.required]),
-                description: new FormControl(this.impfung.ort.description, [Validators.required]),
-                date: new FormControl(this.impfung.ort.date, [Validators.required]),
-                PLZ: new FormControl(this.impfung.ort.PLZ, [Validators.required])
-            });//
-       //console.log(fg);
-       //this.orte.push(fg);
-       this.ort = fg;
-       // }
+        this.is.getAllOrte().subscribe(res => {
+            this.orte = res;
+        });
     }
+
 
     submitForm() {
 // filter empty values
@@ -83,11 +84,11 @@ export class ImpfungFormComponent implements OnInit {
             ortvorschau => ortvorschau.address
         )*/
         const impfung: Impfung = ImpfungFactory.fromObject(this.impfungForm.value);
-//deep copy - did not work without??
+
         impfung.ort = this.impfungForm.value.orte;
         console.log(impfung);
-//just copy the authors
-        //impfung.authors = this.impfung.authors;
+
+
         if (this.isUpdatingImpfung) {
             this.is.update(impfung).subscribe(res => {
                 this.router.navigate(["../../impfung", impfung.title], {
@@ -96,7 +97,7 @@ export class ImpfungFormComponent implements OnInit {
             });
         } else {
             //impfung.user_id = 1; // jsut for testing
-            console.log(impfung);
+            //console.log(impfung);
             this.is.create(impfung).subscribe(res => {
                 this.impfung = ImpfungFactory.empty();
                 this.impfungForm.reset(ImpfungFactory.empty());
@@ -105,6 +106,20 @@ export class ImpfungFormComponent implements OnInit {
             });
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //ERROR Messages
     updateErrorMessages() {
         console.log("Is invalid? " + this.impfungForm.invalid);
         this.errors = {};

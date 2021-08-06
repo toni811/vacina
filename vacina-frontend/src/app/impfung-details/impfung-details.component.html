@@ -19,6 +19,12 @@
         <p class="card-text" style="color: black"> Adresse: {{impfung.ort.address}}</p>
         <p class="card-text" style="color: black"> Beschreibung: {{impfung.ort.description}}</p>
 
+
+
+
+
+
+
         <a href="#" [routerLink]="'/impfung'" type="button"  class="btn btn-primary">Zurück zur
                                                                                     Impfübersicht</a>
       </div>
@@ -35,13 +41,17 @@
 <!--
 <button *ngIf="authService.isLoggedIn()" class="btn btn-primary" (click)="removeImpfung()"> löschen
 </button>
+-->
 <a *ngIf="authService.isLoggedIn()" class="btn btn-primary" [routerLink]="['../../admin', impfung?.title]"> bearbeiten</a>
 
--->
+
 
 <!-- BUTTONS WERDEN IMMER ANGEZEIGT -->
 
 <button  class="btn btn-primary" (click)="removeImpfung()">löschen </button>
+
+<!--
+<a  class="btn btn-primary" [routerLink]="[ userSVN]"> bearbeiten </a>
 
 <a  class="btn btn-primary" [routerLink]="['../../admin', impfung?.title]"> bearbeiten </a>
 

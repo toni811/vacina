@@ -4,7 +4,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ImpfungStoreService} from '../shared/impfung-store.service';
 import {ImpfungFactory} from '../shared/impfung-factory';
 import {AuthenticationService} from '../shared/authentication.service';
+import {User} from "../shared/user";
 
+//liefert Methoden hinzu, die von angular ausgelesen werden können
 @Component({
   selector: 'bs-impfung-details',
   templateUrl: './impfung-details.component.html',
@@ -48,6 +50,29 @@ import {AuthenticationService} from '../shared/authentication.service';
                     this.route
                 }));
         }
+
+/*
+//edit vaccination information
+        saveVaccination() {
+        const val = this.editForm.value;
+
+        if (confirm("Wollen sie diese Änderungen wirklich speichern?")) {
+            this.vaccination.location_id = val.location;
+            this.vaccination.dateOfVaccination = new Date(val.dateOfVaccination);
+            this.vaccination.fromTime = val.fromTime;
+            this.vaccination.toTime = val.toTime;
+            this.vaccination.maxParticipants = val.maxParticipants;
+
+            this.vs.saveVaccination(this.vaccination).subscribe(res => {
+                this.toastr.success(
+                    "Impftermindetails wurden aktualisiert",
+                    "Impftermindetails aktualisiert!"
+                );
+            });
+            this.router.navigate(["../../"], { relativeTo: this.route });
+        }
+    }
+*/
 }
 }
 

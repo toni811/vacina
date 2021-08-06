@@ -79,7 +79,8 @@ export class AuthenticationService {
             }
             return true;
         } else {
-            return false;
+            // von false auf auf true geändert
+            return true;
         }
     }
     isLoggedOut() {

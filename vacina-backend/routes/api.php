@@ -14,32 +14,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 ///
 ///LOGIN
 ///
-Route::post('auth/login', [\App\Http\Controllers\AuthController::class,'login']);
+Route::post('auth/login', [\App\Http\Controllers\AuthController::class,'login']);*/
 
 
 ///
 ///IMPFUNG
 ///
-// methods which need authenticatoion - JWT Token
-Route::group(['middleware' => ['api','cors', 'auth.jwt']], function(){
-
-    // SAVE -> POST
-    Route::post('Impfung', [\App\Http\Controllers\ImpfungController::class,'save']);
-
-    //UPDATE -> PUT
-    Route::put('Impfung/{title}', [\App\Http\Controllers\ImpfungController::class,'update']);
 
     // DELET -> DELET
     Route::delete('Impfung/{title}', [\App\Http\Controllers\ImpfungController::class,'delete']);
 
-});
+
+
+
+
+
+// SAVE -> POST
+Route::post('Impfung', [\App\Http\Controllers\ImpfungController::class,'save']);
+
+//UPDATE -> PUT
+Route::put('Impfung/{title}', [\App\Http\Controllers\ImpfungController::class,'update']);
 
 //INDEX
 Route::get('Impfung', [\App\Http\Controllers\ImpfungController::class,'index']);
@@ -55,7 +56,7 @@ Route::get('Impfung/checkTitle/{title}', [\App\Http\Controllers\ImpfungControlle
 ///
 /// ORT
 ///
-Route::get('ort', [\App\Http\Controllers\OrtController::class,'index']);
+Route::get('orts', [\App\Http\Controllers\OrtController::class,'index']);
 
 // SAVE -> POST
 Route::post('ort', [\App\Http\Controllers\OrtController::class,'save']);
@@ -70,7 +71,16 @@ Route::delete('ort/{address}', [\App\Http\Controllers\OrtController::class,'dele
 ///
 /// USER
 ///
+
+// FINDBY SVN
+Route::get('user/{SVN}', [\App\Http\Controllers\UserController::class, 'findBySVN']);
+
+// INDEX
 Route::get('user', [\App\Http\Controllers\UserController::class,'index']);
+
+Route::get('user/{id}', [UserController::class, 'findById']);
+
+
 
 // DELET -> DELET
 Route::delete('user/{SVN}', [\App\Http\Controllers\UserController::class,'delete']);
@@ -81,13 +91,8 @@ Route::post('user', [\App\Http\Controllers\UserController::class,'save']);
 
 
 
-// FINDBY SVN x
-// "updating User failed: Call to undefined relationship [user] on model [App\\Models\\User]."
-Route::get('user/{SVN}', [\App\Http\Controllers\UserController::class, 'findBySVN']);
 
 
-// CHECK TITLE x
-Route::get('user/checkSVN/{SVN}', [\App\Http\Controllers\ImpfungController::class,'checkSVN']);
 
 
 // ISADMIN x

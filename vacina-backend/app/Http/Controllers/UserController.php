@@ -26,12 +26,22 @@ class UserController extends Controller
         return $user;
     }
 
-    // SHOW
-    public function show($user)
-    {
-        $user = User::find($user);
-        return view('user.show', compact('user'));
+
+    // GET USER BY ID
+    public function findById(int $id) {
+        $user = User::where('id', $id)->first();
+        return $user;
     }
+
+ // GET USER BY SVN
+    public function findBySVN(string $SVN){
+        $user = User::where('SVN',$SVN)->first();
+        return $user;
+    }
+
+
+
+
 
 
 
@@ -113,26 +123,103 @@ class UserController extends Controller
     }
 
 
-    //  FINDBYSVN
-    public function findBySVN(string $SVN) : User
-    {
-        $SVN = User::where('SVN', $SVN)->with(['SVN'])->first();
-        return $SVN;
-    }
-
-    public function checkSVN(string $SVN)
-    {
-        $SVN = User::where ('SVN', $SVN)->first();
-        return $SVN != null ? response()->json(true, 200) : response()->json(false, 200);
-    }
-
 
 
 // ISADMIN x
-    public function isAdmin(int $SVN) : bool {
-        $user = User::where('SVN', $SVN)->first();
-        return $user->isAdmin;
+
+
+/*
+     // create new user
+
+    public function save(Request $request) : JsonResponse  {
+        $request = $this->parseRequest($request);
+
+        //use a transaction for saving model including relations
+        //if one query fails, complete SQL statements will be rolled back
+
+        DB::beginTransaction();
+        try {
+            $user = User::create($request->all());
+
+            if (isset($request['password'])) {
+                $request['password'] = bcrypt($request['password']);
+            }
+
+            DB::commit();
+            // return a vaild http response
+            return response()->json($user, 201);
+        }
+        catch (\Exception $e) {
+            // rollback all queries
+            DB::rollBack();
+            return response()->json("saving user failed: " . $e->getMessage(), 420);
+        }
     }
+
+
+     //update user
+
+    public function update(Request $request, string $name) : JsonResponse
+    {
+        DB::beginTransaction();
+        try {
+            $user = User::all()->where('username', $name)->first();
+
+            if ($user != null) {
+                $user->update($request->all());
+                $user->save();
+            }
+
+            DB::commit();
+            $user1 = User::all()->where('username', $name)->first();
+            // return a vaild http response
+            return response()->json($user1, 201);
+        }
+        catch (\Exception $e) {
+            // rollback all queries
+            DB::rollBack();
+            return response()->json("updating user failed: " . $e->getMessage(), 420);
+        }
+    }
+
+
+     // returns 200 if user deleted successfully, throws excpetion if not
+
+    public function delete(string $name) : JsonResponse
+    {
+        $user = User::where('username', $name)->first();
+        if ($user != null) {
+            $user->delete();
+        }
+        else
+            throw new \Exception("user couldn't be deleted - it does not exist");
+        return response()->json('user (' . $user . ') successfully deleted', 200);
+    }
+
+
+     // modify / convert values if needed
+
+    private function parseRequest(Request $request) : Request {
+        // get date and convert it - its in ISO 8601, e.g. "2018-01-01T23:00:00.000Z"
+        $date = new \DateTime($request->dateOfBirth);
+        $request['dateOfBirth'] = $date;
+        return $request;
+    }
+
+
+    */
+
+    ///////////////////////
+
+
+
+
+
+
+
+
+
+
 
 
     //

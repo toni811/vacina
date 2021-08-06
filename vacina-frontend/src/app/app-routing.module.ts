@@ -8,17 +8,26 @@ import {ImpfungFormComponent} from './impfung-form/impfung-form.component';
 import {LoginComponent} from './login/login.component';
 
 
+
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'impfung', component: ImpfungListComponent},
     // Delet
     { path: 'impfung/:title', component: ImpfungDetailsComponent },
+
+
+    ///////////////////////////////
+    { path: 'impfung/user/:id', component: ImpfungDetailsComponent },
+
+
+
+    //////////////////////////////////////
     //Formular
     { path: 'admin', component: ImpfungFormComponent },
     { path: 'admin/:title', component: ImpfungFormComponent },
     //Login
-    { path: 'login', component: LoginComponent}
+
 ];
 
 @NgModule({

@@ -72,7 +72,7 @@ class OrtController extends Controller
     }
 
 
-// SAVE
+// SAVE --> neuen Ort erstellen
     public function save (Request $request) : JsonResponse
     {
 
