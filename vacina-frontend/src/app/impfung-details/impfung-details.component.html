@@ -22,18 +22,6 @@
 
 
 
-
-
-
-        <a href="#" [routerLink]="'/impfung'" type="button"  class="btn btn-primary">Zurück zur
-                                                                                    Impfübersicht</a>
-      </div>
-    </div>
-    </div>
-  </div>
-
-
-
 <!-- BUTTON -->
 
 
@@ -45,7 +33,7 @@
 <a *ngIf="authService.isLoggedIn()" class="btn btn-primary" [routerLink]="['../../admin', impfung?.title]"> bearbeiten</a>
 
 
-
+<span></span>
 <!-- BUTTONS WERDEN IMMER ANGEZEIGT -->
 
 <button  class="btn btn-primary" (click)="removeImpfung()">löschen </button>
@@ -55,6 +43,20 @@
 
 <a  class="btn btn-primary" [routerLink]="['../../admin', impfung?.title]"> bearbeiten </a>
 
+-->
+
+
+
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+
+
+ <a href="#" [routerLink]="'/impfung'" type="button"  class="btn btn-primary">Zurück zur
+                                                                                    Impfübersicht</a>
 <!-- ENDE -->
 </div>
 

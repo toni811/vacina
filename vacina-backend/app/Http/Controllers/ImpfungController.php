@@ -66,9 +66,10 @@ public function save (Request $request) : JsonResponse {
         $impfung = Impfung::create($request->all());
 
 
-        if (isset($request['ort_id'])) {
-            $ort = Ort::find($request->ort_id);
+        if (isset($request['ort'])) {
+            $ort = Ort::find($request->ort);
         } else {
+
             throw new \Exception("Ort id is missing.");
         }
         $impfung->ort()->associate($ort);

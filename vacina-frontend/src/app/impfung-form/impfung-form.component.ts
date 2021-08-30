@@ -83,13 +83,16 @@ export class ImpfungFormComponent implements OnInit {
         /*this.impfungForm.value.orte = this.impfungForm.value.orte.filter(
             ortvorschau => ortvorschau.address
         )*/
+        console.log("Submit method");
+        console.log("isUpdatingImpfung: " + this.isUpdatingImpfung);
         const impfung: Impfung = ImpfungFactory.fromObject(this.impfungForm.value);
 
         impfung.ort = this.impfungForm.value.orte;
-        console.log(impfung);
+        //console.log(impfung);
 
 
         if (this.isUpdatingImpfung) {
+            console.log("update");
             this.is.update(impfung).subscribe(res => {
                 this.router.navigate(["../../impfung", impfung.title], {
                     relativeTo: this.route
@@ -97,9 +100,11 @@ export class ImpfungFormComponent implements OnInit {
             });
         } else {
             //impfung.user_id = 1; // jsut for testing
-            //console.log(impfung);
+            console.log(this.impfung);
+            console.log(impfung);
             this.is.create(impfung).subscribe(res => {
                 this.impfung = ImpfungFactory.empty();
+                console.log(this.impfung);
                 this.impfungForm.reset(ImpfungFactory.empty());
                 this.router.navigate(["../impfung"], { relativeTo: this.route
                 });
