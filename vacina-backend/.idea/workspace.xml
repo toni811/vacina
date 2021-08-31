@@ -656,7 +656,7 @@
       <workItem from="1628515101998" duration="336000" />
       <workItem from="1630329772908" duration="773000" />
       <workItem from="1630335219850" duration="11004000" />
-      <workItem from="1630422928689" duration="4780000" />
+      <workItem from="1630422928689" duration="5104000" />
     </task>
     <task id="LOCAL-00001" summary="removed frontend folder">
       <created>1621929827774</created>
@@ -711,7 +711,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="487080000" />
+    <option name="totallyTimeSpent" value="487404000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
