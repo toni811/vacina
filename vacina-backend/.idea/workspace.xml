@@ -414,7 +414,7 @@
     </packageJsonPaths>
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="101" />
     <option name="width" value="1715" />
     <option name="height" value="1038" />
