@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="895b8783-3394-4466-a8c3-5f399bcfb283" name="Default Changelist" comment="save">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ImpfungController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ImpfungController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Impfung.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Impfung.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_17_0000_create_orts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_17_0000_create_orts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_17_193332_create_impfungs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_17_193332_create_impfungs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vacina-frontend/src/app/impfung-form/impfung-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vacina-frontend/src/app/impfung-form/impfung-form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vacina-frontend/src/app/shared/impfung.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vacina-frontend/src/app/shared/impfung.ts" afterDir="false" />
-    </list>
+    <list default="true" id="895b8783-3394-4466-a8c3-5f399bcfb283" name="Default Changelist" comment="save" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -664,7 +656,7 @@
       <workItem from="1628515101998" duration="336000" />
       <workItem from="1630329772908" duration="773000" />
       <workItem from="1630335219850" duration="11004000" />
-      <workItem from="1630422928689" duration="4632000" />
+      <workItem from="1630422928689" duration="4685000" />
     </task>
     <task id="LOCAL-00001" summary="removed frontend folder">
       <created>1621929827774</created>
@@ -719,7 +711,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="486932000" />
+    <option name="totallyTimeSpent" value="486985000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -731,7 +723,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="81" y="0" width="1372" height="830" extended-state="1" />
+    <frame x="81" y="0" width="1372" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.5010571" side_tool="true" weight="0.14295302" />
