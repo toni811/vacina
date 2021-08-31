@@ -15,7 +15,7 @@ class CreateOrtsTable extends Migration
     {
         Schema::create('orts', function (Blueprint $table) {
             // auf default gegeben
-            //$table->id()->default('111');
+           // $table->id();
             //
             $table->bigIncrements('id');
 

@@ -57,7 +57,8 @@ public function save (Request $request) : JsonResponse {
 
     $request = $this->parseRequest($request);
 
-   // var_dump($request->all()); die();
+   //var_dump($request->all()); die();
+   //var_dump($request['ort']['ort_id']); die();
 
     DB::beginTransaction();
     try {
@@ -66,12 +67,23 @@ public function save (Request $request) : JsonResponse {
         $impfung = Impfung::create($request->all());
 
 
-        if (isset($request['ort'])) {
-            $ort = Ort::find($request->ort);
+            // Ort wird gesucht
+             if (isset($request['ort']) && is_array($request['ort'])){
+                if(isset($request['ort']['ort_id'])){
+                    $ort_id = $request['ort']['ort_id'];
+                    $ort = Ort::find($ort_id);
+                }
+                else {
+
+                    throw new \Exception("Ort id is missing.");
+                }
+
         } else {
 
-            throw new \Exception("Ort id is missing.");
+            throw new \Exception("Ort is missing.");
         }
+
+        // Ort wird mit Impfung vereint
         $impfung->ort()->associate($ort);
         $impfung->save();
 
@@ -102,8 +114,10 @@ public function save (Request $request) : JsonResponse {
                 $impfung->orte()->delete();
                 // save
 
-                if (isset($request['ort_id'])) {
-                    $ort = Ort::find($request->ort_id);
+                  if (isset($request['ort_id'])) {
+
+                     $ort = Ort::find($request->ort_id);
+
                 } else {
                     throw new \Exception("Ort id is missing.");
                 }

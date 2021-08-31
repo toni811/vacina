@@ -10,5 +10,6 @@ export class Impfung {
         public MaxMember,
         public appointment,
         public ort
+        //public ort_id
     ){}
 }

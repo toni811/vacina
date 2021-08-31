@@ -12,9 +12,11 @@ class Impfung extends Model
 {
     use HasFactory;
 
-    protected $fillable = [ 'title', 'date',
-        'description', 'MasMember','appointment', 'ort_id', 'user_id'];
+   // protected $fillable = [ 'title', 'date',
+      //  'description', 'MaxMember','appointment', 'ort_id', 'user_id'];
 
+    protected $fillable = [ 'title', 'date',
+        'description', 'MaxMember','appointment','user_id'];
 
 
 // ORT
