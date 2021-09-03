@@ -30,8 +30,31 @@ export class ImpfungStoreService {
             .pipe(retry(3)).pipe(catchError(this.errorHandler));
     }
 // man muss Orte mitschicken --> deshalb funktioniert das Speichern nicht!!
+    //
     create(impfung: Impfung): Observable<any> {
-        return this.http.post(`${this.api}/Impfung`, impfung)
+        console.log(impfung);
+        return this.http.post(`${this.api}/Impfung`,
+
+            // Objekt erstellen
+            {
+                title: '',
+                date: '',
+                description: '',
+                MaxMember: '',
+                appointment: '',
+
+                ort: {
+                    ort_id: '',
+                    PLZ: '',
+                    location: '',
+                    address: '',
+                    description: ''
+                }
+
+
+            }
+
+            )
             .pipe(retry(3)).pipe(catchError(this.errorHandler));
 
     }

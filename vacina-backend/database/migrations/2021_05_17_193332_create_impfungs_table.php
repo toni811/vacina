@@ -26,12 +26,8 @@ class CreateImpfungsTable extends Migration
 
             //ORT
             // FK BEZIEHUNG
-            //$table->foreignId('ort_id')->constrained()->onDelete('cascade');
+            $table->foreignId('ort_id')->constrained()->onDelete('cascade');
 
-            $table->bigInteger('ort_id')->unsigned();
-            $table->foreign('ort_id')
-                ->references('id')->on('orts')
-                ->onDelete('cascade');
 
             $table->timestamps();
         });
