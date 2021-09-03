@@ -8,7 +8,7 @@ import {ImpfungFormComponent} from './impfung-form/impfung-form.component';
 import {LoginComponent} from './login/login.component';
 
 
-
+// Push
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
